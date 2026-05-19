@@ -1,34 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-const experiences = [
-  {
-    company: "Aztek Teknoloji",
-    role: "Brand & Technology Lead",
-    period: "Present",
-    description:
-      "Leading digital transformation initiatives and retail technology solutions. Building scalable systems that enhance customer experiences across touchpoints.",
-  },
-  {
-    company: "Huawei",
-    role: "Retail Technology Specialist",
-    period: "Previous",
-    description:
-      "Developed consumer technology strategies and implemented UI/UX improvements across retail ecosystem. Collaborated with cross-functional teams on product launches.",
-  },
-  {
-    company: "Philips",
-    role: "Digital Experience",
-    period: "Previous",
-    description:
-      "Crafted digital experiences for consumer electronics division. Focused on user-centered design principles and front-end development.",
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export function Experience() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,16 +39,16 @@ export function Experience() {
           }`}
         >
           <p className="text-muted-foreground text-sm tracking-widest uppercase mb-4">
-            Experience
+            {t.experience.label}
           </p>
           <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-balance">
-            Where I&apos;ve made an impact.
+            {t.experience.heading}
           </h2>
         </div>
 
         {/* Experience list */}
         <div className="space-y-0">
-          {experiences.map((exp, index) => (
+          {t.experience.items.map((exp, index) => (
             <div
               key={exp.company}
               className={`group border-t border-border last:border-b py-8 transition-all duration-700 ${

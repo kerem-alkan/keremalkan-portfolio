@@ -1,41 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-const projects = [
-  {
-    title: "Retail Experience Platform",
-    category: "Digital Experience",
-    description:
-      "End-to-end retail technology solution powering seamless customer journeys across physical and digital touchpoints.",
-    tags: ["Next.js", "TypeScript", "Tailwind"],
-  },
-  {
-    title: "Consumer Electronics Portal",
-    category: "UI/UX Systems",
-    description:
-      "Comprehensive design system and component library for a global electronics brand, ensuring consistency across products.",
-    tags: ["React", "Design System", "Figma"],
-  },
-  {
-    title: "Smart Store Dashboard",
-    category: "Retail Operations",
-    description:
-      "Real-time analytics dashboard for retail operations, providing insights into customer behavior and inventory management.",
-    tags: ["Data Viz", "TypeScript", "APIs"],
-  },
-  {
-    title: "Brand Identity System",
-    category: "Digital Experience",
-    description:
-      "Complete brand refresh and digital identity system for a technology company entering new markets.",
-    tags: ["Branding", "UI/UX", "Web"],
-  },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export function SelectedWork() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -68,16 +39,16 @@ export function SelectedWork() {
           }`}
         >
           <p className="text-muted-foreground text-sm tracking-widest uppercase mb-4">
-            Selected Work
+            {t.work.label}
           </p>
           <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-balance">
-            Projects that define my craft.
+            {t.work.heading}
           </h2>
         </div>
 
         {/* Projects grid */}
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+          {t.work.projects.map((project, index) => (
             <div
               key={project.title}
               className={`group relative bg-card border border-border rounded-2xl p-8 hover:border-muted-foreground transition-all duration-500 cursor-pointer ${

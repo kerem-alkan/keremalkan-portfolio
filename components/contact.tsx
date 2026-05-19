@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 export function Contact() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,12 +25,6 @@ export function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const socialLinks = [
-    { label: "LinkedIn", href: "#" },
-    { label: "GitHub", href: "#" },
-    { label: "X / Twitter", href: "#" },
-  ];
-
   return (
     <section
       ref={sectionRef}
@@ -46,14 +42,13 @@ export function Contact() {
             }`}
           >
             <p className="text-muted-foreground text-sm tracking-widest uppercase">
-              Contact
+              {t.contact.label}
             </p>
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-balance">
-              Let&apos;s create something remarkable together.
+              {t.contact.heading}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
-              Open to discussing new projects, creative ideas, or opportunities 
-              to be part of your vision.
+              {t.contact.description}
             </p>
 
             {/* Email */}
@@ -90,10 +85,10 @@ export function Contact() {
           >
             <div>
               <p className="text-muted-foreground text-sm tracking-widest uppercase mb-6">
-                Connect
+                {t.contact.connectLabel}
               </p>
               <div className="space-y-4">
-                {socialLinks.map((link) => (
+                {t.contact.socialLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
@@ -125,9 +120,9 @@ export function Contact() {
             {/* Location */}
             <div className="pt-8">
               <p className="text-muted-foreground text-sm tracking-widest uppercase mb-4">
-                Based in
+                {t.contact.basedInLabel}
               </p>
-              <p className="text-foreground text-lg">Istanbul, Turkey</p>
+              <p className="text-foreground text-lg">{t.contact.location}</p>
             </div>
           </div>
         </div>

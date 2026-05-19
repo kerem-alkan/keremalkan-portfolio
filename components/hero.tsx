@@ -1,27 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 export function Hero() {
   const [mounted, setMounted] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const focusAreas = [
-    "Retail Operations",
-    "Digital Experience",
-    "Front-End Development",
-    "UI/UX Systems",
-    "Consumer Technologies",
-  ];
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Subtle gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-background to-background" />
-      
+
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-32">
         <div
           className={`space-y-8 transition-all duration-1000 ${
@@ -30,7 +24,7 @@ export function Hero() {
         >
           {/* Eyebrow */}
           <p className="text-muted-foreground text-sm tracking-widest uppercase">
-            Brand & Technology Specialist
+            {t.hero.eyebrow}
           </p>
 
           {/* Main heading */}
@@ -40,12 +34,12 @@ export function Hero() {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed text-pretty">
-            Crafting seamless digital experiences at the intersection of brand strategy and technology innovation.
+            {t.hero.subtitle}
           </p>
 
           {/* Focus areas */}
           <div className="flex flex-wrap gap-3 pt-4">
-            {focusAreas.map((area, index) => (
+            {t.hero.focusAreas.map((area, index) => (
               <span
                 key={area}
                 className="text-sm text-muted-foreground border border-border px-4 py-2 rounded-full transition-all duration-300 hover:border-muted-foreground hover:text-foreground"
@@ -66,7 +60,7 @@ export function Hero() {
               href="#work"
               className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
             >
-              View Work
+              {t.hero.viewWork}
               <svg
                 width="16"
                 height="16"
@@ -87,7 +81,7 @@ export function Hero() {
               href="#about"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              Learn more
+              {t.hero.learnMore}
             </a>
           </div>
         </div>
