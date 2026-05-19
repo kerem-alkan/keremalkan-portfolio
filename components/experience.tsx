@@ -1,12 +1,34 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useLanguage } from "@/lib/i18n";
+
+const experiences = [
+  {
+    company: "Aztek Teknoloji",
+    role: "Brand & Technology Lead",
+    period: "Present",
+    description:
+      "Leading digital transformation initiatives and retail technology solutions. Building scalable systems that enhance customer experiences across touchpoints.",
+  },
+  {
+    company: "Huawei",
+    role: "Retail Technology Specialist",
+    period: "Previous",
+    description:
+      "Developed consumer technology strategies and implemented UI/UX improvements across retail ecosystem. Collaborated with cross-functional teams on product launches.",
+  },
+  {
+    company: "Philips",
+    role: "Digital Experience",
+    period: "Previous",
+    description:
+      "Crafted digital experiences for consumer electronics division. Focused on user-centered design principles and front-end development.",
+  },
+];
 
 export function Experience() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,12 +51,9 @@ export function Experience() {
     <section
       ref={sectionRef}
       id="experience"
-      className="py-32 relative overflow-hidden"
+      className="py-32 bg-secondary/30 border-t border-border"
     >
-      {/* Subtle atmospheric background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-background" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div
           className={`mb-16 transition-all duration-700 ${
@@ -42,16 +61,16 @@ export function Experience() {
           }`}
         >
           <p className="text-muted-foreground text-sm tracking-widest uppercase mb-4">
-            {t.experience.label}
+            Experience
           </p>
           <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-balance">
-            {t.experience.heading}
+            Where I&apos;ve made an impact.
           </h2>
         </div>
 
         {/* Experience list */}
         <div className="space-y-0">
-          {t.experience.items.map((exp, index) => (
+          {experiences.map((exp, index) => (
             <div
               key={exp.company}
               className={`group border-t border-border last:border-b py-8 transition-all duration-700 ${

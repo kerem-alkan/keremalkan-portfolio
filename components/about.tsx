@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useLanguage } from "@/lib/i18n";
 
 export function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,7 +27,7 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-32 section-fade"
+      className="py-32 border-t border-border"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
@@ -42,10 +40,10 @@ export function About() {
             }`}
           >
             <p className="text-muted-foreground text-sm tracking-widest uppercase">
-              {t.about.label}
+              About
             </p>
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-balance">
-              {t.about.heading}
+              Building bridges between brands and technology.
             </h2>
           </div>
 
@@ -58,18 +56,27 @@ export function About() {
             }`}
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {t.about.paragraph1}
+              I&apos;m a Brand & Technology Specialist with deep expertise in retail operations 
+              and digital experiences. My work focuses on creating intuitive interfaces and 
+              systems that bridge the gap between consumer expectations and technological capabilities.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {t.about.paragraph2}
+              With experience across global technology brands, I bring a unique perspective 
+              that combines strategic thinking with hands-on technical execution. I believe 
+              in the power of thoughtful design and clean code to create meaningful impact.
             </p>
-
+            
             {/* Skills grid */}
             <div className="grid grid-cols-2 gap-4 pt-4">
-              {t.about.skills.map((skill, index) => (
+              {[
+                { label: "Front-End", detail: "React, Next.js, TypeScript" },
+                { label: "UI/UX", detail: "Figma, Design Systems" },
+                { label: "Retail Tech", detail: "Operations, Strategy" },
+                { label: "Digital", detail: "Experience Design" },
+              ].map((skill, index) => (
                 <div
                   key={skill.label}
-                  className="p-5 rounded-xl card-elevated transition-all duration-500 hover:scale-[1.02]"
+                  className="p-4 border border-border rounded-xl hover:border-muted-foreground transition-colors duration-300"
                   style={{
                     transitionDelay: `${index * 100}ms`,
                   }}

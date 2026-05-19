@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useLanguage } from "@/lib/i18n";
 
 export function Contact() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,19 +23,19 @@ export function Contact() {
     return () => observer.disconnect();
   }, []);
 
+  const socialLinks = [
+    { label: "LinkedIn", href: "#" },
+    { label: "GitHub", href: "#" },
+    { label: "X / Twitter", href: "#" },
+  ];
+
   return (
     <section
       ref={sectionRef}
       id="contact"
-      className="py-32 relative overflow-hidden"
+      className="py-32 bg-secondary/30 border-t border-border"
     >
-      {/* Subtle atmospheric background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-background" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      
-      {/* Ambient glow */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-glow-warm/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left column */}
           <div
@@ -48,21 +46,22 @@ export function Contact() {
             }`}
           >
             <p className="text-muted-foreground text-sm tracking-widest uppercase">
-              {t.contact.label}
+              Contact
             </p>
             <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-balance">
-              {t.contact.heading}
+              Let&apos;s create something remarkable together.
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
-              {t.contact.description}
+              Open to discussing new projects, creative ideas, or opportunities 
+              to be part of your vision.
             </p>
 
             {/* Email */}
             <a
-              href="mailto:contact@keremalkan.com"
-              className="btn-premium inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 rounded-full group"
+              href="mailto:hello@keremalkan.com"
+              className="inline-flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors group"
             >
-              <span className="text-base font-medium tracking-wide">contact@keremalkan.com</span>
+              <span className="text-xl font-medium">hello@keremalkan.com</span>
               <svg
                 width="20"
                 height="20"
@@ -91,27 +90,24 @@ export function Contact() {
           >
             <div>
               <p className="text-muted-foreground text-sm tracking-widest uppercase mb-6">
-                {t.contact.connectLabel}
+                Connect
               </p>
-              <div className="space-y-2">
-                {t.contact.socialLinks.map((link, index) => (
+              <div className="space-y-4">
+                {socialLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between py-4 px-5 rounded-xl group hover:bg-secondary/50 transition-all duration-400 ease-out"
-                    style={{ transitionDelay: `${index * 50}ms` }}
+                    className="flex items-center justify-between py-4 border-b border-border group hover:border-muted-foreground transition-colors"
                   >
-                    <span className="text-foreground font-medium group-hover:translate-x-1 transition-transform duration-300">
+                    <span className="text-foreground group-hover:text-muted-foreground transition-colors">
                       {link.label}
                     </span>
                     <svg
-                      width="18"
-                      height="18"
+                      width="16"
+                      height="16"
                       viewBox="0 0 16 16"
                       fill="none"
-                      className="text-muted-foreground opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+                      className="text-muted-foreground opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all"
                     >
                       <path
                         d="M4.66669 11.3333L11.3334 4.66666M11.3334 4.66666H4.66669M11.3334 4.66666V11.3333"
@@ -129,9 +125,9 @@ export function Contact() {
             {/* Location */}
             <div className="pt-8">
               <p className="text-muted-foreground text-sm tracking-widest uppercase mb-4">
-                {t.contact.basedInLabel}
+                Based in
               </p>
-              <p className="text-foreground text-lg">{t.contact.location}</p>
+              <p className="text-foreground text-lg">Istanbul, Turkey</p>
             </div>
           </div>
         </div>
