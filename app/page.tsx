@@ -20,7 +20,6 @@ export default function Page() {
   );
 }
 
-```tsx
 export default function Home() {
   return (
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0d0d0f] text-white">
