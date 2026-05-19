@@ -59,7 +59,7 @@ export function Navigation() {
           <LanguageToggle />
           <a
             href="#contact"
-            className="text-sm text-foreground border border-border px-4 py-2 rounded-full hover:bg-secondary/50 hover:border-muted-foreground/50 transition-all duration-300"
+            className="btn-secondary text-sm text-foreground border border-border/60 px-4 py-2 rounded-full"
           >
             {t.nav.getInTouch}
           </a>

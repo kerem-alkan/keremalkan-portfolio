@@ -51,7 +51,7 @@ export function SelectedWork() {
           {t.work.projects.map((project, index) => (
             <div
               key={project.title}
-              className={`group relative bg-card border border-border rounded-2xl p-8 hover:border-muted-foreground/50 hover:bg-secondary/20 transition-all duration-500 cursor-pointer card-glow ${
+              className={`group relative card-elevated rounded-2xl p-8 transition-all duration-500 cursor-pointer hover:scale-[1.01] ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"

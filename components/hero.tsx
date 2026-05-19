@@ -14,15 +14,21 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Cinematic grain overlay */}
+      <div className="grain-overlay" />
+      
       {/* Atmospheric ambient glow */}
       <div className="ambient-glow-top" />
       
       {/* Soft radial gradient for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
       
+      {/* Apple keynote-style spotlight */}
+      <div className="spotlight top-0 left-1/2 -translate-x-1/2 -translate-y-1/4" />
+      
       {/* Subtle warm accent glow */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glow-warm/20 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-glow-cool/15 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glow-warm/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-glow-cool/12 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -68,7 +74,7 @@ export function Hero() {
             <div className="flex items-center gap-6 pt-8">
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full font-medium hover:bg-foreground/90 transition-all duration-300 shadow-lg shadow-foreground/10"
+                className="btn-premium inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full font-medium"
               >
                 {t.hero.viewWork}
                 <svg
@@ -103,7 +109,7 @@ export function Hero() {
             }`}
           >
             {/* Soft ambient glow behind portrait */}
-            <div className="absolute -inset-8 bg-gradient-to-br from-glow-warm/25 via-transparent to-glow-cool/20 rounded-[2rem] blur-3xl" />
+            <div className="absolute -inset-12 bg-gradient-to-br from-glow-warm/20 via-transparent to-glow-cool/15 rounded-[3rem] blur-[60px]" />
             
             {/* Portrait container */}
             <div className="relative">
@@ -125,7 +131,7 @@ export function Hero() {
                   src="/images/portrait.png"
                   alt="Kerem Alkan"
                   fill
-                  className="object-cover object-top grayscale-[15%] contrast-[1.02]"
+                  className="object-cover object-top img-editorial"
                   priority
                   sizes="(max-width: 768px) 256px, (max-width: 1024px) 288px, 320px"
                 />

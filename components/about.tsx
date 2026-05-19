@@ -69,7 +69,7 @@ export function About() {
               {t.about.skills.map((skill, index) => (
                 <div
                   key={skill.label}
-                  className="p-4 border border-border rounded-xl hover:border-muted-foreground/50 hover:bg-secondary/30 transition-all duration-300 card-glow"
+                  className="p-5 rounded-xl card-elevated transition-all duration-500 hover:scale-[1.02]"
                   style={{
                     transitionDelay: `${index * 100}ms`,
                   }}

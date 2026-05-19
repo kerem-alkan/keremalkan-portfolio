@@ -60,9 +60,9 @@ export function Contact() {
             {/* Email */}
             <a
               href="mailto:hello@keremalkan.com"
-              className="inline-flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors group"
+              className="btn-premium inline-flex items-center gap-3 bg-foreground text-background px-6 py-3 rounded-full group"
             >
-              <span className="text-xl font-medium">hello@keremalkan.com</span>
+              <span className="text-lg font-medium">hello@keremalkan.com</span>
               <svg
                 width="20"
                 height="20"
@@ -98,7 +98,7 @@ export function Contact() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="flex items-center justify-between py-4 border-b border-border group hover:border-muted-foreground/50 hover:bg-secondary/20 hover:px-4 transition-all duration-300 rounded-lg"
+                    className="flex items-center justify-between py-4 px-4 rounded-xl group hover:bg-secondary/40 transition-all duration-300"
                   >
                     <span className="text-foreground group-hover:text-muted-foreground transition-colors">
                       {link.label}
