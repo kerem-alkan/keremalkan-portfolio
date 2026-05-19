@@ -29,7 +29,7 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="py-32 border-t border-border"
+      className="py-32 section-fade"
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
@@ -69,7 +69,7 @@ export function About() {
               {t.about.skills.map((skill, index) => (
                 <div
                   key={skill.label}
-                  className="p-4 border border-border rounded-xl hover:border-muted-foreground transition-colors duration-300"
+                  className="p-4 border border-border rounded-xl hover:border-muted-foreground/50 hover:bg-secondary/30 transition-all duration-300 card-glow"
                   style={{
                     transitionDelay: `${index * 100}ms`,
                   }}

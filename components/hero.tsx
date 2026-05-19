@@ -14,8 +14,15 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-background to-background" />
+      {/* Atmospheric ambient glow */}
+      <div className="ambient-glow-top" />
+      
+      {/* Soft radial gradient for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background" />
+      
+      {/* Subtle warm accent glow */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-glow-warm/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-glow-cool/15 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -31,7 +38,7 @@ export function Hero() {
             </p>
 
             {/* Main heading */}
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-balance leading-[1.05]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-balance leading-[1.05] text-glow">
               Kerem Alkan
             </h1>
 
@@ -45,7 +52,7 @@ export function Hero() {
               {t.hero.focusAreas.map((area, index) => (
                 <span
                   key={area}
-                  className="text-sm text-muted-foreground border border-border px-4 py-2 rounded-full transition-all duration-300 hover:border-muted-foreground hover:text-foreground"
+                  className="text-sm text-muted-foreground border border-border px-4 py-2 rounded-full transition-all duration-300 hover:border-muted-foreground/60 hover:text-foreground hover:bg-secondary/50"
                   style={{
                     transitionDelay: mounted ? `${index * 100}ms` : "0ms",
                     opacity: mounted ? 1 : 0,
@@ -61,7 +68,7 @@ export function Hero() {
             <div className="flex items-center gap-6 pt-8">
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-full font-medium hover:bg-foreground/90 transition-all duration-300 shadow-lg shadow-foreground/10"
               >
                 {t.hero.viewWork}
                 <svg
@@ -95,16 +102,16 @@ export function Hero() {
               mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            {/* Outer glow effect */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-muted/20 via-transparent to-muted/10 rounded-3xl blur-2xl" />
+            {/* Soft ambient glow behind portrait */}
+            <div className="absolute -inset-8 bg-gradient-to-br from-glow-warm/25 via-transparent to-glow-cool/20 rounded-[2rem] blur-3xl" />
             
             {/* Portrait container */}
             <div className="relative">
-              {/* Subtle border glow */}
-              <div className="absolute -inset-[1px] bg-gradient-to-b from-border/60 via-border/20 to-transparent rounded-2xl" />
+              {/* Subtle gradient border */}
+              <div className="absolute -inset-[1px] bg-gradient-to-b from-border/80 via-border/40 to-border/20 rounded-2xl" />
               
               {/* Image wrapper with mask for editorial effect */}
-              <div className="relative w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden bg-card">
+              <div className="relative w-64 h-80 md:w-72 md:h-96 lg:w-80 lg:h-[28rem] rounded-2xl overflow-hidden bg-card inner-depth">
                 {/* Top gradient overlay for cinematic blend */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-background/30 z-10 pointer-events-none" />
                 

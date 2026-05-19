@@ -28,7 +28,7 @@ export function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border"
+          ? "bg-background/70 backdrop-blur-2xl border-b border-border/50 shadow-lg shadow-background/20"
           : "bg-transparent"
       }`}
     >
@@ -59,7 +59,7 @@ export function Navigation() {
           <LanguageToggle />
           <a
             href="#contact"
-            className="text-sm text-foreground border border-border px-4 py-2 rounded-full hover:bg-secondary transition-colors duration-300"
+            className="text-sm text-foreground border border-border px-4 py-2 rounded-full hover:bg-secondary/50 hover:border-muted-foreground/50 transition-all duration-300"
           >
             {t.nav.getInTouch}
           </a>

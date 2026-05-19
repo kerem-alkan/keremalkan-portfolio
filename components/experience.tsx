@@ -29,9 +29,12 @@ export function Experience() {
     <section
       ref={sectionRef}
       id="experience"
-      className="py-32 bg-secondary/30 border-t border-border"
+      className="py-32 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      {/* Subtle atmospheric background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-background" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div
           className={`mb-16 transition-all duration-700 ${

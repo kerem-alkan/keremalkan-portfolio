@@ -29,9 +29,15 @@ export function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="py-32 bg-secondary/30 border-t border-border"
+      className="py-32 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      {/* Subtle atmospheric background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-secondary/20 to-background" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      
+      {/* Ambient glow */}
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-glow-warm/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left column */}
           <div
@@ -92,7 +98,7 @@ export function Contact() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="flex items-center justify-between py-4 border-b border-border group hover:border-muted-foreground transition-colors"
+                    className="flex items-center justify-between py-4 border-b border-border group hover:border-muted-foreground/50 hover:bg-secondary/20 hover:px-4 transition-all duration-300 rounded-lg"
                   >
                     <span className="text-foreground group-hover:text-muted-foreground transition-colors">
                       {link.label}

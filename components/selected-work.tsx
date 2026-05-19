@@ -29,7 +29,7 @@ export function SelectedWork() {
     <section
       ref={sectionRef}
       id="work"
-      className="py-32 border-t border-border"
+      className="py-32 section-fade"
     >
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
@@ -51,7 +51,7 @@ export function SelectedWork() {
           {t.work.projects.map((project, index) => (
             <div
               key={project.title}
-              className={`group relative bg-card border border-border rounded-2xl p-8 hover:border-muted-foreground transition-all duration-500 cursor-pointer ${
+              className={`group relative bg-card border border-border rounded-2xl p-8 hover:border-muted-foreground/50 hover:bg-secondary/20 transition-all duration-500 cursor-pointer card-glow ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
