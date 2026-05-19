@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <main className="relative overflow-hidden bg-[#0A0A0A] text-[#EAEAEA]">
       
-      <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#1A1A1A] blur-[180px]" />
+      <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#202020] blur-[180px]" />
 
       {/* HERO */}
 
@@ -30,13 +30,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-5xl">
+        <div className="relative z-10 max-w-5xl">
 
           <p className="mb-6 text-sm uppercase tracking-[0.3em] text-[#666666]">
             Brand & Technology Specialist
           </p>
 
-          <h1 className="mb-8 text-5xl font-semibold leading-[1.02] tracking-[-0.05em] md:text-8xl">
+          <h1 className="mb-8 text-6xl font-semibold leading-[0.95] tracking-[-0.06em] md:text-[9rem]">
             Building modern
             <br />
             digital experiences
