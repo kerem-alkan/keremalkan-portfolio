@@ -1,0 +1,117 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/lib/i18n";
+
+export function SelectedWork() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="work"
+      className="py-32 section-fade"
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div
+          className={`mb-16 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <p className="text-muted-foreground text-sm tracking-widest uppercase mb-4">
+            {t.work.label}
+          </p>
+          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-balance">
+            {t.work.heading}
+          </h2>
+        </div>
+
+        {/* Projects grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {t.work.projects.map((project, index) => (
+            <div
+              key={project.title}
+              className={`group relative card-elevated rounded-2xl p-8 transition-all duration-500 cursor-pointer hover:scale-[1.01] ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+            >
+              {/* Project number */}
+              <span className="absolute top-8 right-8 text-sm text-muted-foreground font-mono">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              {/* Category */}
+              <p className="text-sm text-muted-foreground mb-4">
+                {project.category}
+              </p>
+
+              {/* Title */}
+              <h3 className="text-2xl font-medium text-foreground mb-4 group-hover:text-muted-foreground transition-colors duration-300">
+                {project.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                {project.description}
+              </p>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs text-muted-foreground border border-border px-3 py-1 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Hover arrow */}
+              <div className="absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  className="text-muted-foreground"
+                >
+                  <path
+                    d="M5.83331 14.1667L14.1666 5.83334M14.1666 5.83334H5.83331M14.1666 5.83334V14.1667"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
