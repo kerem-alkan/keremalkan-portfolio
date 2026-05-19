@@ -59,10 +59,10 @@ export function Contact() {
 
             {/* Email */}
             <a
-              href="mailto:hello@keremalkan.com"
-              className="btn-premium inline-flex items-center gap-3 bg-foreground text-background px-6 py-3 rounded-full group"
+              href="mailto:contact@keremalkan.com"
+              className="btn-premium inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 rounded-full group"
             >
-              <span className="text-lg font-medium">hello@keremalkan.com</span>
+              <span className="text-base font-medium tracking-wide">contact@keremalkan.com</span>
               <svg
                 width="20"
                 height="20"
@@ -93,22 +93,25 @@ export function Contact() {
               <p className="text-muted-foreground text-sm tracking-widest uppercase mb-6">
                 {t.contact.connectLabel}
               </p>
-              <div className="space-y-4">
-                {t.contact.socialLinks.map((link) => (
+              <div className="space-y-2">
+                {t.contact.socialLinks.map((link, index) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    className="flex items-center justify-between py-4 px-4 rounded-xl group hover:bg-secondary/40 transition-all duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between py-4 px-5 rounded-xl group hover:bg-secondary/50 transition-all duration-400 ease-out"
+                    style={{ transitionDelay: `${index * 50}ms` }}
                   >
-                    <span className="text-foreground group-hover:text-muted-foreground transition-colors">
+                    <span className="text-foreground font-medium group-hover:translate-x-1 transition-transform duration-300">
                       {link.label}
                     </span>
                     <svg
-                      width="16"
-                      height="16"
+                      width="18"
+                      height="18"
                       viewBox="0 0 16 16"
                       fill="none"
-                      className="text-muted-foreground opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all"
+                      className="text-muted-foreground opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
                     >
                       <path
                         d="M4.66669 11.3333L11.3334 4.66666M11.3334 4.66666H4.66669M11.3334 4.66666V11.3333"

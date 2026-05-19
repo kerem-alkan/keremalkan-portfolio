@@ -111,9 +111,9 @@ export const translations = {
       basedInLabel: "Based in",
       location: "Istanbul, Turkey",
       socialLinks: [
-        { label: "LinkedIn", href: "#" },
-        { label: "GitHub", href: "#" },
-        { label: "X / Twitter", href: "#" },
+        { label: "GitHub", href: "https://github.com/kerem-alkan" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/kerem-alkan/" },
+        { label: "Instagram", href: "https://www.instagram.com/keremlabs" },
       ],
     },
     // Footer
@@ -234,9 +234,9 @@ export const translations = {
       basedInLabel: "Lokasyon",
       location: "İstanbul, Türkiye",
       socialLinks: [
-        { label: "LinkedIn", href: "#" },
-        { label: "GitHub", href: "#" },
-        { label: "X / Twitter", href: "#" },
+        { label: "GitHub", href: "https://github.com/kerem-alkan" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/kerem-alkan/" },
+        { label: "Instagram", href: "https://www.instagram.com/keremlabs" },
       ],
     },
     // Footer
