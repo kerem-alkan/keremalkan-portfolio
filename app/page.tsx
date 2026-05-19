@@ -1,8 +1,7 @@
-```tsx
 export default function Home() {
   return (
     <main className="relative overflow-hidden bg-[#0A0A0A] text-[#EAEAEA]">
-
+      
       <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#1A1A1A] blur-[180px]" />
 
       {/* HERO */}
@@ -55,7 +54,7 @@ export default function Home() {
         <div className="flex items-center justify-between text-sm text-[#666666]">
           <p>Istanbul, Türkiye</p>
 
-          <p>Available for selected projects</p>
+          <p>Open to modern digital collaborations</p>
         </div>
 
       </section>
@@ -240,4 +239,3 @@ export default function Home() {
     </main>
   );
 }
-```
