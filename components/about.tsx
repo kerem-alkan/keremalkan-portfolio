@@ -1,0 +1,96 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+export function About() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      id="about"
+      className="py-32 border-t border-border"
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          {/* Left column */}
+          <div
+            className={`space-y-6 transition-all duration-700 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
+            <p className="text-muted-foreground text-sm tracking-widest uppercase">
+              About
+            </p>
+            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-balance">
+              Building bridges between brands and technology.
+            </h2>
+          </div>
+
+          {/* Right column */}
+          <div
+            className={`space-y-8 transition-all duration-700 delay-200 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              I&apos;m a Brand & Technology Specialist with deep expertise in retail operations 
+              and digital experiences. My work focuses on creating intuitive interfaces and 
+              systems that bridge the gap between consumer expectations and technological capabilities.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              With experience across global technology brands, I bring a unique perspective 
+              that combines strategic thinking with hands-on technical execution. I believe 
+              in the power of thoughtful design and clean code to create meaningful impact.
+            </p>
+            
+            {/* Skills grid */}
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              {[
+                { label: "Front-End", detail: "React, Next.js, TypeScript" },
+                { label: "UI/UX", detail: "Figma, Design Systems" },
+                { label: "Retail Tech", detail: "Operations, Strategy" },
+                { label: "Digital", detail: "Experience Design" },
+              ].map((skill, index) => (
+                <div
+                  key={skill.label}
+                  className="p-4 border border-border rounded-xl hover:border-muted-foreground transition-colors duration-300"
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                  }}
+                >
+                  <p className="text-foreground font-medium">{skill.label}</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {skill.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
